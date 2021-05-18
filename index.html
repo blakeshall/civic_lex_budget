@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Drag and Drop budget</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+<body class="">
+  <div class="container-xxl">
+    <div class="row">
+      <h1 class="display-1">Sliders</h1>
+    </div>
+    <div class="row">
+      <div class="row">
+        <div class="col">
+          <label for="budget" class="slider-label">Unallocated Budget <span id="budgetOutput">$743,200,000.00</span>
+            <input type="range" id="budget" value="743200000" min="0" max="743200000" step="100000" class="budget-slider" disabled />
+          </label>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('ag', 100000)"><i class="bi bi-plus-circle"></i></button>
+        </div>
+        <div class="col">
+          <label for="ag" class="slider-label">Agriculture & Food Systems <span id="agOutput">$0.00</span>
+            <input type="range" id="ag" value="0"  min="0" max="371600000" step="100000" class="department slider"/>
+          </label>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('ag', -100000)"><i class="bi bi-dash-circle"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('arts', 100000)"><i class="bi bi-plus-circle"></i></button>
+        </div>
+        <div class="col">
+          <label for="arts" class="slider-label">Arts & Culture <span id="artsOutput">$0.00</span>
+            <input type="range" id="arts" value="0"  min="0" max="371600000" step="100000" class="department slider"/>
+          </label>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('arts', -100000)"><i class="bi bi-dash-circle"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('communityDesign', 100000)"><i class="bi bi-plus-circle"></i></button>
+        </div>
+        <div class="col">
+          <label for="communityDesign" class="slider-label">Community Design <span id="communityDesignOutput">$0.00</span>
+            <input type="range" id="communityDesign" value="0"  min="0" max="371600000" step="100000" class="department slider"/>
+          </label>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('communityDesign', -100000)"><i class="bi bi-dash-circle"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('housing', 100000)"><i class="bi bi-plus-circle"></i></button>
+        </div>
+        <div class="col">
+          <label for="housing" class="slider-label">Development & Housing <span id="housingOutput">$0.00</span>
+            <input type="range" id="housing" value="0"  min="0" max="371600000" step="100000" class="department slider"/>
+          </label>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('housing', -100000)"><i class="bi bi-dash-circle"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('econDev', 100000)"><i class="bi bi-plus-circle"></i></button>
+        </div>
+        <div class="col">
+          <label for="econDev" class="slider-label">Economic Development <span id="econDevOutput">$0.00</span>
+            <input type="range" id="econDev" value="0"  min="0" max="371600000" step="100000" class="department slider"/>
+          </label>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('econDev', -100000)"><i class="bi bi-dash-circle"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('education', 100000)"><i class="bi bi-plus-circle"></i></button>
+        </div>
+        <div class="col">
+          <label for="education" class="slider-label">Education <span id="educationOutput">$0.00</span>
+            <input type="range" id="education" value="0"  min="0" max="371600000" step="100000" class="department slider"/>
+          </label>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('education', -100000)"><i class="bi bi-dash-circle"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('energy', 100000)"><i class="bi bi-plus-circle"></i></button>
+        </div>
+        <div class="col">
+          <label for="energy" class="slider-label">Energy & Environment	 <span id="energyOutput">$0.00</span>
+            <input type="range" id="energy" value="0"  min="0" max="371600000" step="100000" class="department slider"/>
+          </label>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('energy', -100000)"><i class="bi bi-dash-circle"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('general', 100000)"><i class="bi bi-plus-circle"></i></button>
+        </div>
+        <div class="col">
+          <label for="general" class="slider-label">General Government <span id="generalOutput">$0.00</span>
+            <input type="range" id="general" value="0"  min="0" max="371600000" step="100000" class="department slider"/>
+          </label>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('general', -100000)"><i class="bi bi-dash-circle"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('immigration', 100000)"><i class="bi bi-plus-circle"></i></button>
+        </div>
+        <div class="col">
+          <label for="immigration" class="slider-label">Immigration <span id="immigrationOutput">$0.00</span>
+            <input type="range" id="immigration" value="0"  min="0" max="371600000" step="100000" class="department slider"/>
+          </label>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('immigration', -100000)"><i class="bi bi-dash-circle"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('publicHealth', 100000)"><i class="bi bi-plus-circle"></i></button>
+        </div>
+        <div class="col">
+          <label for="publicHealth" class="slider-label">Public Health <span id="publicHealthOutput">$0.00</span>
+            <input type="range" id="publicHealth" value="0"  min="0" max="371600000" step="100000" class="department slider"/>
+          </label>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('publicHealth', -100000)"><i class="bi bi-dash-circle"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('publicSafety', 100000)"><i class="bi bi-plus-circle"></i></button>
+        </div>
+        <div class="col">
+          <label for="publicSafety" class="slider-label">Public Safety <span id="publicSafetyOutput">$0.00</span>
+            <input type="range" id="publicSafety" value="0"  min="0" max="371600000" step="100000" class="department slider"/>
+          </label>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('publicSafety', -100000)"><i class="bi bi-dash-circle"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('transportation', 100000)"><i class="bi bi-plus-circle"></i></button>
+        </div>
+        <div class="col">
+          <label for="transportation" class="slider-label">Transportation <span id="transportationOutput">$0.00</span>
+            <input type="range" id="transportation" value="0"  min="0" max="371600000" step="100000" class="department slider"/>
+          </label>
+        </div>
+        <div class="col-1">
+          <button class="btn btn-outline-primary stepper" onclick="updateAllocation('transportation', -100000)"><i class="bi bi-dash-circle"></i></button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <h4>Share your budget</h4>
+          <p>Just copy the link below:</p>
+          <input type="text" class="form-control" id="shareLink"> 
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .stepper {
+      height: 100%;
+      width: 100%;
+    }
+    .drop-height {
+      min-height: 400px;
+    }
+    body {
+      height: 100vh;
+      margin: 0;
+      display: flex;
+    }
+
+    input[type="range"] { 
+        margin: auto;
+        -webkit-appearance: none;
+        position: relative;
+        overflow: hidden;
+        height: 40px;
+        width: 100%;
+        cursor: pointer;
+        border-radius: 0; /* iOS */
+    }
+
+    ::-webkit-slider-runnable-track {
+        background: #ddd;
+    }
+
+    /*
+    * 1. Set to 0 width and remove border for a slider without a thumb
+    */
+    ::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 20px; /* 1 */
+        height: 40px;
+        background: #fff;
+        box-shadow: -100vw 0 0 100vw  rgb(17, 247, 67);
+        border: 2px solid #999; /* 1 */
+    }
+
+    ::-moz-range-track {
+        height: 40px;
+        background: #ddd;
+    }
+
+    ::-moz-range-thumb {
+        background: #fff;
+        height: 40px;
+        width: 20px;
+        border: 3px solid #999;
+        border-radius: 0 !important;
+        box-shadow: -100vw 0 0 100vw  rgb(17, 247, 67);
+        box-sizing: border-box;
+    }
+
+    ::-ms-fill-lower { 
+        background: rgb(17, 247, 67);
+    }
+
+    ::-ms-thumb { 
+        background: #fff;
+        border: 2px solid #999;
+        height: 40px;
+        width: 20px;
+        box-sizing: border-box;
+    }
+
+    ::-ms-ticks-after { 
+        display: none; 
+    }
+
+    ::-ms-ticks-before { 
+        display: none; 
+    }
+
+    ::-ms-track { 
+        background: #ddd;
+        color: transparent;
+        height: 40px;
+        border: none;
+    }
+
+    ::-ms-tooltip { 
+        display: none;
+    }
+
+    .slider {
+      display: block;
+    }
+    .slider-label {
+      width: 100%;
+    }
+
+    .budget-slider input[type="range"] { 
+      margin: auto;
+      -webkit-appearance: none;
+      position: relative;
+      overflow: hidden;
+      height: 40px;
+      width: 100%;
+      cursor: pointer;
+      border-radius: 0; /* iOS */
+    }
+    .budget-slider::-ms-thumb { 
+      background: #000;
+      border: 2px solid #999;
+      height: 40px;
+      width: 10px;
+      box-sizing: border-box;
+    }
+    .budget-slider::-moz-range-thumb {
+      background: #000;
+      height: 40px;
+      width: 10px;
+      border: 3px solid #999;
+      border-radius: 0 !important;
+      box-shadow: -100vw 0 0 100vw  rgb(17, 247, 67);
+      box-sizing: border-box;
+    }
+    .budget-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 10px; /* 1 */
+      height: 40px;
+      background: #000;
+      box-shadow: -100vw 0 0 100vw  rgb(17, 247, 67);
+      border: 2px solid #999; /* 1 */
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+  
+  <script>
+    // Sliders 743200000
+    var maxTotal = 743200000, 
+    inputs = [].slice.call(document.getElementsByClassName('department')),
+    getTotal = function(){
+        var sum = 0;
+        inputs.forEach( function(input){
+           sum += parseInt(input.value, 10); 
+        });
+        return sum;
+    },
+    maxReached = function(e){
+        var sum = getTotal(), target;
+        var targetOutput = e.target.previousElementSibling;
+        var budgetSlider = document.getElementById('budget');
+        var budgetOutput = document.getElementById('budgetOutput');
+        if(sum > maxTotal){
+            target = e.target;
+            target.value = target.value - (sum - maxTotal);
+            targetOutput.innerText = formatter.format(target.value);
+            e.preventDefault();
+            budgetOutput.innerText = formatter.format(0);
+            budgetSlider.value = 0;
+            updateShareLink();
+            return false;
+        }
+        
+        targetOutput.innerText = formatter.format(e.target.value);
+        budgetOutput.innerText = formatter.format(maxTotal - sum);
+        budgetSlider.value = maxTotal - sum;
+        updateShareLink();
+        return true;
+    },
+    formatter = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+
+      // These options are needed to round to whole numbers if that's what you want.
+      //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+      //maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+    });
+
+    updateAllocation = function(sector, amount){
+      var budgetSlider = document.getElementById('budget');
+      var budgetOutput = document.getElementById('budgetOutput');
+      var slider = document.getElementById(sector);
+      var sectorText = slider.previousElementSibling;
+      var currentValue = parseInt(slider.value);
+      var currentTotal = getTotal();
+      
+      // Check that the amount can be allocated
+      var difference = maxTotal - (currentTotal + amount)
+      if (difference < 0){
+        // Trying to allocate more than allowed
+        var canAllocate = maxTotal - currentTotal;
+        slider.value = currentValue + canAllocate;
+
+      } else {
+        // Able to allocate
+        slider.value = currentValue + amount;
+      }
+      sectorText.innerText = formatter.format(slider.value);
+      budgetOutput.innerText = formatter.format(maxTotal - getTotal());
+      budgetSlider.value = maxTotal - getTotal();
+      updateShareLink();
+    };
+
+
+    inputs.forEach( function(input){
+        input.addEventListener('input', maxReached );
+    });
+
+    var sectors = ['ag', 'arts', 'communityDesign', 'housing', 'econDev', 'education', 'energy', 'general', 'immigration', 'publicHealth', 'publicSafety', 'transportation']
+
+
+    updateShareLink = function(){
+      var link = document.location.href + '?';
+      sectors.forEach(function(sector){
+        var sectorValue = parseInt(document.getElementById(sector).value);
+        link += sector + '=' + sectorValue + '&'
+      })
+      document.getElementById('shareLink').value = link;
+    };
+
+    loadURLValues = function(){
+      var urlSearch = new URLSearchParams(window.location.search);
+      sectors.forEach(function(sector){
+        updateAllocation(sector, parseInt(urlSearch.get(sector)));
+      });
+    };
+
+
+    loadURLValues();
+
+  </script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
+</body>
+</html>
